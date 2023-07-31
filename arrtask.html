@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Training Portfolio</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CRC Training</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week1">Week1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week2">Week2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week3">Week3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week4">Week4</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              JavaScript
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">task1</a></li>
+              <li><a class="dropdown-item" href="./task2.html">task2</a></li>
+              <li><a class="dropdown-item" href="./task3.html">task3</a></li>
+              <li><a class="dropdown-item" href="./task4.html">task4</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Project</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-6" class="form-control" style="background-color: aqua; color:solid black;">Name</div>
+            <div class="col-md-6" class="form-control" style="background-color: aqua; color:solid black;">Age</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" class="form-control" id="id1"></div>
+            <div class="col-md-6" class="form-control" id="id2"></div>
+        </div>
+    </div>
+    <div class="container">
+        <center style="margin: 20px; padding: 10px;">
+            <button onclick="al()">All</button>
+            <button onclick="lt()">less 20</button>
+            <button onclick="gt()">greater 20</button>
+            <button onclick="btt()">btw 20 to 30</button>
+        </center>
+    </div>
+    <script>
+        let person1 = {
+            name: "Arvind",
+            age: 16,
+        };
+        let person2 = {
+            name: "Anmol",
+            age: 32,
+        };
+        let person3 = {
+            name: "Akash",
+            age: 25,
+        };
+        let person4 = {
+            name: "Ankit",
+            age: 31,
+        };
+        let person5 = {
+            name: "Gaurav",
+            age: 20,
+        };
+        let person6 = {
+            name: "Aman",
+            age: 40,
+        };
+        let person7 = {
+            name: "Adarsh",
+            age: 45,
+        };
+        let person8 = {
+            name: "Dishant",
+            age: 36,
+        };
+        let person9 = {
+            name: "Deepak",
+            age: 28,
+        };
+        let person10 = {
+            name: "Avaneesh",
+            age: 31,
+        };
+        let arr = [person1, person2, person3, person4, person5, person6, person7, person8, person9, person10];
+
+        function al() {
+            document.getElementById('id1').innerHTML="";
+            document.getElementById('id2').innerHTML="";
+            for (let i = 0; i < arr.length; i++) {
+                var c1 = document.getElementById('id1');
+                var c2 = document.createElement('h5');
+                c2.innerHTML = arr[i].name;
+                c1.appendChild(c2);
+
+
+                var c3 = document.getElementById('id2');
+                var c4 = document.createElement('h5');
+                c4.innerHTML = arr[i].age;
+                c3.appendChild(c4);
+            }
+        }
+
+        function lt() {
+            document.getElementById('id1').innerHTML="";
+            document.getElementById('id2').innerHTML="";
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].age < 20) {
+                    var c1 = document.getElementById('id1');
+                    var c2 = document.createElement('h5');
+                    c2.innerHTML = arr[i].name;
+                    c1.appendChild(c2);
+
+
+                    var c3 = document.getElementById('id2');
+                    var c4 = document.createElement('h5');
+                    c4.innerHTML = arr[i].age;
+                    c3.appendChild(c4);
+                }
+            }
+        }
+
+        function gt() {
+            document.getElementById('id1').innerHTML="";
+            document.getElementById('id2').innerHTML="";
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].age > 20) {
+                    var c1 = document.getElementById('id1');
+                    var c2 = document.createElement('h5');
+                    c2.innerHTML = arr[i].name;
+                    c1.appendChild(c2);
+
+
+                    var c3 = document.getElementById('id2');
+                    var c4 = document.createElement('h5');
+                    c4.innerHTML = arr[i].age;
+                    c3.appendChild(c4);
+                }
+            }
+        }
+
+        function btt() {
+            document.getElementById('id1').innerHTML="";
+            document.getElementById('id2').innerHTML="";
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].age > 20 && arr[i].age < 30) {
+                    var c1 = document.getElementById('id1');
+                    var c2 = document.createElement('h5');
+                    c2.innerHTML = arr[i].name;
+                    c1.appendChild(c2);
+
+
+                    var c3 = document.getElementById('id2');
+                    var c4 = document.createElement('h5');
+                    c4.innerHTML = arr[i].age;
+                    c3.appendChild(c4);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+<!-- wap  -->

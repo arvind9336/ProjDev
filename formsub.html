@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <style>
+        h1 {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Training Portfolio</h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">CRC Training</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week1">Week1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week2">Week2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week3">Week3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./trainport.html#week4">Week4</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              JavaScript
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">task1</a></li>
+              <li><a class="dropdown-item" href="./task2.html">task2</a></li>
+              <li><a class="dropdown-item" href="./task3.html">task3</a></li>
+              <li><a class="dropdown-item" href="./task4.html">task4</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Project</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <h3 style="background-color: black; color: white; text-align: center; margin-top: 10px;">Form Submit</h3>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 border border-warning" style="background-color: rgb(142, 218, 218);">
+                <form onsubmit="return sub1(this)">
+                    <div class="mt-3">
+                        <label for="userid" class="form-label">User-Id</label>
+                        <input type="text" id="userid" placeholder="Enter your userid" class="form-control" required>
+                    </div>
+                    <div class="mt-3">
+                        <label for="pass">Password</label>
+                        <input type="password" id="pass" placeholder="Enter your password" class="form-control" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="show" onchange="showpass()">
+                        <label for="show" class="form-check-label">Show Password</label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="form-label">Gender</label>
+                        <input type="radio" name="gender" id="m" value="Male" checked>
+                        <label for="m">M</label>
+                        <input type="radio" name="gender" id="f" value="Female">
+                        <label for="f">F</label>
+                    </div>
+                    <div class="mt-3">
+                        <label class="form-label">Branch</label>
+                        <select id="branch" class="form-select">
+                            <option value="CSE">CSE</option>
+                            <option value="IT">IT</option>
+                            <option value="CSDS">CSDS</option>
+                            <option value="AI">AI</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <input type="submit" class="bg-primary">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <script>
+        const master=new Map();
+        function sub1(form){
+            let profile=new Map();
+            profile.set("userid",form.userid.value);
+            profile.set("pass",form.pass.value);
+            let gen;
+            for(let r of form.gender){ 
+                if(r.checked) gen=r.value;
+            }
+            
+            profile.set("gender",gen);
+            let i=form.branch.selectedIndex;
+            let br=form.branch.options[i].value;
+            console.log(profile);
+            profile.set("branch",br);
+            master.set(form.userid.value,profile);
+            console.log(master);
+            //localStorage.setItem(data,master);
+            return false;
+        }
+        function showpass(){
+            let x=document.getElementById('pass');
+            if(document.getElementById('show').checked)x.type="text";
+            else x.type="password";
+        }
+    </script>
+</body>
+
+</html>
